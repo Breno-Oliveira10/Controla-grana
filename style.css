@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #0b1220;
+  --muted: #6b7280;
+  --success: #2ecc71; 
+  --danger: #c0392b;
+  --shadow: 0 6px 18px rgba(11, 18, 32, 0.06);
+  --radius: 10px;
+  --gap: 1rem;
+  --font: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  padding: 2rem;
+}
+
+.container {
+  max-width: 900px;
+  background: transparent;
+  margin: 0 auto;
+  padding: 0.5rem 1.1rem; /* espaço de 1.1rem no mobile nas laterais */
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+ /* ===== Scoreboard ===== */
+.scoreboard {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.scoreboard h4 {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.scoreboard h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.inc-exp-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.inc-exp {
+  flex: 1;
+  background: var(--card);
+  padding: 0.6rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.inc-exp h4 {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.money {
+  font-weight: 700;
+}
+
+.money.plus {
+  color: var(--success);
+}
+
+.money.minus {
+  color: var(--danger);
+}
+
+/* ===== Histórico ===== */
+h3 {
+  margin-bottom: 0.7rem;
+  text-align: center;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  background: var(--card);
+  padding: 0.5rem;
+  border-radius: 8px;
+
+  box-shadow: var(--shadow);
+  margin-bottom: 0.7rem;
+  border-right: 6px solid transparent; /* borda inicial */
+}
+
+/* classes para borda colorida conforme tipo */
+.list li.plus {
+  border-right-color: var(--success);
+}
+
+.list li.minus {
+  border-right-color: var(--danger);
+}
+
+.list .text {
+  font-weight: 600;
+}
+
+.list .amount {
+  font-weight: 700;
+}
+
+/* botão delete: só aparece no hover do li */
+.delete-btn {
+  border: none;
+  background: transparent;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.18s ease-in-out;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+
+ /* ===== Form ===== */
+.form-card {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-top: 1rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+input[type="text"], input[type="number"] {
+  padding: 0.6rem;
+  border-radius: var(--radius); 
+  border: 1px solid #e6e9ef;
+  font-size: 1rem;
+}
+
+.note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+.btn {
+  display: block;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #3c3ca5;
+  padding: 0.6rem 1.5rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.5rem auto;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #1e1e7cfb;
+  transition: background 0.3s ease-in-out;
+}
+
+
+@media (min-width: 768px) {
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .scoreboard {
+    grid-column: 1/-1;
+  }
+
+  .form-card {
+    margin-top: 0;
+  }
+
+  .inc-exp-container, .list li {
+    flex-direction: row;
+  }
+
+}
